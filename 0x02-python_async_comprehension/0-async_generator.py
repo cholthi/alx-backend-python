@@ -5,6 +5,7 @@ Provides an async generator that sleeps 1s between yields
 import asyncio
 import random
 
+
 async def async_generator():
     """loops 10 times and waits for 1s asycronously,
     then yields a random value between 0 and 10
