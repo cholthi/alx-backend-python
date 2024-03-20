@@ -4,13 +4,14 @@ run time
 """
 import asyncio
 import time
+from importlib import import_module as using
 
 
-async_com = __import__('1-async_comprehension').async_comprehension
+async_com = using('1-async_comprehension').async_comprehension
 
 
 async def measure_runtime() -> int:
     """Measure runtime for 4 coroutines running asycronously"""
     start_time = time.perf_counter()
-    _ = await asyncio.gather(*(async_com() for i in range(4)))
+    await asyncio.gather(*(async_com() for _ in range(4)))
     return time.perf_counter() - start_time
